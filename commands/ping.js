@@ -34,6 +34,11 @@ module.exports = {
             })
             .setTimestamp();
 
-        await interaction.reply({ content: '@everyone', embeds: [embed] });
+        // Gửi @everyone riêng để Discord ping thông báo
+        await interaction.channel.send('@everyone');
+        // Gửi embed riêng
+        await interaction.channel.send({ embeds: [embed] });
+        // Phản hồi ephemeral cho người dùng lệnh
+        await interaction.reply({ content: '✅ Đã gửi thông báo!', flags: 64 });
     },
 };
