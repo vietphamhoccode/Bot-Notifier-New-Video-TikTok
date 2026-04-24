@@ -24,17 +24,26 @@ function taiLaiConfig() {
 const lenhPing = require('./commands/ping');
 const lenhThemKenh = require('./commands/add_kenh');
 const lenhXoaKenh = require('./commands/xoa_kenh');
+const lenhMute = require('./commands/mute');
+const lenhBan = require('./commands/ban');
+const lenhUnban = require('./commands/unban');
+const lenhUnmute = require('./commands/unmute');
 
 const danhSachLenh = new Collection();
 danhSachLenh.set(lenhPing.data.name, lenhPing);
 danhSachLenh.set(lenhThemKenh.data.name, lenhThemKenh);
 danhSachLenh.set(lenhXoaKenh.data.name, lenhXoaKenh);
+danhSachLenh.set(lenhMute.data.name, lenhMute);
+danhSachLenh.set(lenhBan.data.name, lenhBan);
+danhSachLenh.set(lenhUnban.data.name, lenhUnban);
+danhSachLenh.set(lenhUnmute.data.name, lenhUnmute);
 
 /* ============================
    Nạp dịch vụ
    ============================ */
 
 const { kiemTraTatCaKenh } = require('./services/tiktok');
+const { napLaiTimer } = require('./utils/banManager');
 
 /* ============================
    Khởi tạo Discord Client
@@ -45,6 +54,7 @@ const client = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers,
     ],
 });
 
@@ -58,6 +68,10 @@ async function dangKyLenh() {
         lenhPing.data.toJSON(),
         lenhThemKenh.data.toJSON(),
         lenhXoaKenh.data.toJSON(),
+        lenhMute.data.toJSON(),
+        lenhBan.data.toJSON(),
+        lenhUnban.data.toJSON(),
+        lenhUnmute.data.toJSON(),
     ];
 
     try {
@@ -109,6 +123,7 @@ client.once('clientReady', async () => {
     client.user.setActivity('TikTok 👀', { type: ActivityType.Watching });
 
     await dangKyLenh();
+    napLaiTimer(client);
 
     console.log('[TikTok] 🚀 Bắt đầu theo dõi...');
     setTimeout(chayKiemTra, 5000);

@@ -226,7 +226,10 @@ async function kiemTraLive(username) {
         const laOffline = thongBao.includes('offline')
             || thongBao.includes('ended')
             || thongBao.includes("isn't online")
-            || thongBao.includes('LIVE_HAS_ENDED');
+            || thongBao.includes('LIVE_HAS_ENDED')
+            || thongBao.includes('user_not_found')
+            || thongBao.includes('room_id')
+            || thongBao.includes('19881007');
 
         if (!laOffline) {
             console.log(`[TikTok Live] ⚠️ @${username}: ${thongBao}`);
@@ -380,7 +383,7 @@ async function kiemTraTatCaKenh(client, config) {
             }
 
             // Delay giữa các kênh
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            await new Promise(resolve => setTimeout(resolve, 1000));
 
         } catch (loi) {
             console.error(`[TikTok] ❌ Lỗi @${username}:`, loi.message);
