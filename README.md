@@ -112,7 +112,7 @@ A Discord bot that monitors TikTok channels and sends notifications when new vid
 
 1. **Clone & Install:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/tiktok-discord-bot.git
+git clone https://github.com/vietphamhoccode/Bot-Notifier-New-Video-TikTok
 cd tiktok-discord-bot
 npm install
 ```
