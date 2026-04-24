@@ -1,0 +1,22 @@
+{
+    "name": "tiktok-discord-bot",
+    "version": "1.0.0",
+    "description": "Discord bot theo dõi kênh TikTok - thông báo video mới và live stream",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [
+        "discord",
+        "tiktok",
+        "bot",
+        "notification",
+        "live-stream"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.7.9",
+        "discord.js": "^14.16.3",
+        "tiktok-live-connector": "^1.2.3"
+    }
+}

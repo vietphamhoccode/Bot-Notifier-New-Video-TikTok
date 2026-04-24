@@ -1,0 +1,10 @@
+{
+    "botken_discord": "YOUR_BOT_TOKEN_HERE",
+    "client_id": "YOUR_CLIENT_ID_HERE",
+    "id_guild": "YOUR_GUILD_ID_HERE",
+    "list_channel": [],
+    "list_id_role_permission": [
+        "YOUR_ROLE_ID_HERE"
+    ],
+    "channel_id_tiktok": "YOUR_CHANNEL_ID_HERE"
+}
