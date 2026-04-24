@@ -36,7 +36,7 @@ Bot Discord theo dõi các kênh TikTok, tự động thông báo video mới v�
 
 1. **Clone repo:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/tiktok-discord-bot.git
+git clone https://github.com/vietphamhoccode/Bot-Notifier-New-Video-TikTok
 cd tiktok-discord-bot
 ```
 
